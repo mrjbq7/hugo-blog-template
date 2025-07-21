@@ -1,0 +1,14 @@
+<hr/>
+{{ $pages := .Pages }}
+{{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+{{ range first 10 $pages }}
+<article style="margin-bottom: 1.0em;">
+<div>
+    <h2><span class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></span></h2>
+{{ if (gt .Params.date 0) }}<p><span class="date">{{ .Date.Format "Friday, January 2, 2006" }}</span></p>{{ end }}
+</div>
+
+{{ .Content }}
+</article>
+<hr/>
+{{ end }}

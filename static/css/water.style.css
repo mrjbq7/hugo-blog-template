@@ -1,0 +1,163 @@
+p {
+  line-height: 150%;
+}
+
+table {
+  width: auto;
+}
+
+main {
+  display: flex;
+  max-width: 100%;
+}
+
+article {
+   max-width: 100%;
+}
+
+.content {
+  flex: 1;
+}
+
+.sidebar {
+  width: 300px;
+}
+
+.date {
+  color: var(--text-muted);
+  font-family: monospace;
+  white-space: pre;
+}
+
+.draft {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.tags {
+  font-family: monospace;
+}
+
+.icon {
+  vertical-align: sub;
+  padding-right: .25rem;
+  display: inline-block;
+  width: 1em;
+  height: 1.3em;
+  margin-right: 0.2rem;
+  stroke-width: 0; stroke: currentColor;
+  fill: currentColor;
+}
+
+li {
+  padding-bottom: 0.25rem;
+}
+
+blockquote {
+  margin: 1.5em 0;
+  padding: 0 1em;
+}
+
+pre,
+code {
+  font-size: 0.9rem;
+  overflow: auto;
+}
+
+code {
+  background: var(--background-alt);
+  /*
+  background: var(--background-body);
+  border: 1px dashed #dbdbdb;
+  border: 1px dashed var(--border);
+  */
+}
+
+details,
+details summary,
+details[open],
+details[open] summary {
+  background: none;
+  border: none;
+  padding: 0.1rem;
+  margin: 0;
+}
+
+header {
+  border-bottom: 1px dashed #dbdbdb;
+  border-bottom: 1px dashed var(--border);
+  margin-bottom: 1.0rem;
+  color: #70777f;
+  color: var(--text-main);
+}
+
+nav a,
+nav a:visited {
+  background-color: #ffffff;
+  background-color: var(--background-alt);
+  border-radius: 6px;
+  color: var(--text-main);
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding: 3px 10px;
+  text-decoration: none;
+}
+
+nav input {
+  padding: 5px 10px;
+}
+
+nav a:hover {
+  background-color: var(--button-hover);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+footer {
+  border-top: 1px dashed #dbdbdb;
+  border-top: 1px dashed var(--border);
+}
+
+@media only screen and (max-width: 720px) {
+  nav a,
+  nav a:visited {
+    background: none;
+    color: var(--text-main);
+    padding: 3px;
+    padding-left: 0;
+    border: none;
+    line-height: 1;
+  }
+
+  nav a:hover {
+    background: none;
+    text-decoration: underline;
+  }
+
+  nav input {
+    max-width: 100px;
+    padding: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  nav input[type='submit'] {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-top: auto;
+  }
+}
+
+footer {
+    padding-top: 1.0rem;
+}
+

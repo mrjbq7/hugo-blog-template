@@ -1,0 +1,29 @@
+{{ define "title" }}
+{{ if eq .Section "" }}
+{{ .Site.Title }}
+{{ else if eq .Section "tags" }}
+#{{ .Name }} &ndash; {{ .Site.Title }}
+{{ else }}
+{{ .Section }} / {{ .Name }} &ndash; {{ .Site.Title }}
+{{ end }}
+{{ end }}
+
+{{ define "main" }}
+
+<div class="content">
+{{ if eq .Section "" }}
+<h3>Posts</h3>
+{{ else if eq .Section "tags" }}
+<h3>#{{ .Name }}</h3>
+{{ else }}
+<h3>{{ .Section }} / {{ .Name }}</h3>
+{{ end }}
+
+{{ partial "posts.html" . }}
+</div>
+
+{{ if eq .Section "" }}
+{{ partial "aside.html" . }}
+{{ end }}
+
+{{ end }}

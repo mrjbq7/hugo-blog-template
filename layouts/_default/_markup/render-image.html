@@ -1,0 +1,2 @@
+{{ $image := resources.GetMatch .Destination }}
+<img src="{{ $image.RelPermalink }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}"{{ end }} width="{{div $image.Width 2}}" height="{{div $image.Height 2}}" />

@@ -1,0 +1,19 @@
+{{ $permalinkurl := urls.Parse $.Page.Permalink }}
+{{ $relpermalink := $permalinkurl.Path }}
+{{ $pages := slice }}
+{{ range .Site.RegularPages }}
+    {{ if strings.Contains .Content $relpermalink }}
+        {{ $pages = $pages | append . }}
+    {{ end }}
+{{ end }}
+{{ with $pages }}
+<link rel="stylesheet" type="text/css" href="/css/backlinks.css">
+<details class="backlinks" open>
+    <summary><b>Backlinks</b></summary>
+    <ul style="list-style-type: none; padding-left: 1.5em;">
+    {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+    </ul>
+</section>
+{{ end }}

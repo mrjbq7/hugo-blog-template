@@ -1,0 +1,9 @@
+{{ $sorted := (.Pages.ByParam "Date").Reverse }}
+<ul style="padding: 0; list-style-type: none;">
+  {{ range $sorted }}
+  <li>
+    <span class="date">{{ .Date.Format "02 Jan 2006" }}</span>
+    » <a href="{{ .RelPermalink }}" {{ if .Draft }}class="draft"{{ end }}>{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>

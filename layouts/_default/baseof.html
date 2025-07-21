@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    {{ partial "gtag.html" }}
+
+    <title>{{ block "title" . }}{{ if ne .Title "" }}{{ .Title }} &ndash; {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="never">
+    <meta name="referrer" content="no-referrer">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+
+    <link rel="cannonical" href="{{ .Permalink }}">
+
+    <link rel="stylesheet" href="{{ "/css/normalize.css" | relURL }}" />
+    <link rel="stylesheet" href="{{ "/css/water.css" | relURL }}" />
+    <link rel="stylesheet" href="{{ "/css/water.style.css" | relURL }}" />
+
+    <link rel="stylesheet" href="{{ "/css/syntax.css" | relURL }}" />
+    <link rel="stylesheet" href="{{ "/css/downloads.css" | relURL }}" />
+
+    <link href="{{ "/pagefind/pagefind-ui.css" | relURL }}" rel="stylesheet" />
+    <link href="{{ "/css/pagefind.css" | relURL }}" rel="stylesheet" />
+    <script src="{{ "/pagefind/pagefind-ui.js" | relURL }}"></script>
+
+    {{ range .AlternativeOutputFormats -}}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+
+    {{ with .OutputFormats.Get "rss" -}}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+  </head>
+  <body>
+    {{ block "header" . }}
+    {{ partial "header.html" . }}
+    {{ end }}
+
+    <main>
+    {{ block "main" . }}
+    {{ end }}
+    </main>
+
+    {{ block "footer" . }}
+    {{ partial "footer.html" . }}
+    {{ end }}
+
+  </body>
+</html>

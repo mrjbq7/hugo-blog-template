@@ -1,0 +1,43 @@
+baseURL = 'https://server'
+languageCode = 'en-us'
+title = 'Blog Title'
+enableRobotsTXT = true
+summaryLength = 70
+uglyURLs = true
+relativeURLs = true
+# disableKinds = ["taxonomy", "term"]
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[menu]
+[[menu.main]]
+  identifier = 'tags'
+  name = 'Tags'
+  url = 'tags.html'
+
+[taxonomies]
+  tag = 'tags'
+
+[permalinks]
+  '/' = '/:year/:month/:slug'
+
+[params]
+  description = 'A website built through Hugo and blogdown.'
+  footer = '&copy; [User Name](https://github.com/)'
+
+# disableKinds = ['sitemap']
+[sitemap]
+  changefreq = 'monthly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+[markup]
+  [markup.highlight]
+    noclasses = false
+
+  [markup.goldmark.renderer]
+    unsafe= true

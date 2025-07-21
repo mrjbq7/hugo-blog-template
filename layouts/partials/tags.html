@@ -1,0 +1,7 @@
+{{ with .Param "tags" }}
+  {{ range $index, $tag := (. | sort) }} 
+  {{ with $.Site.GetPage (printf "/%s/%s" "tags" $tag) }}
+    <a href="{{ .RelPermalink }}">#{{ $tag | urlize }}</a>
+  {{ end }}
+  {{ end }}
+{{ end }}

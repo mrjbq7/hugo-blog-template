@@ -1,0 +1,11 @@
+{{ range .Pages.GroupByDate "2006" }}
+<details>
+    <summary>{{ .Key }} ({{ len .Pages }})</summary>
+    <ul style="list-style-type: none; padding-left: 1.5em;">
+    {{ range .Pages }}
+      <li><span class="date">{{ .Date.Format "Jan 02" }}</span>
+      » <a href="{{ .RelPermalink }}" {{ if .Draft }}class="draft"{{ end }}>{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+</details>
+{{ end }}

@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+<div class="content">
+<h2>{{ .Title }}</h2>
+
+{{ range .Data.Terms }}
+<details>
+    <summary>{{ .Page.Title }} ({{ .Count }})</summary>
+    <ul style="list-style-type: none; padding-left: 1.5em;">
+    {{ range .Pages }}
+      <li><span class="date">{{ .Date.Format "02 Jan 2006" }}</span>
+      » <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+</details>
+{{ end }}
+</div>
+
+{{ end }}

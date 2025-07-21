@@ -1,0 +1,13 @@
+{{ $pages := .Pages }}
+{{ if .IsHome }}{{ $pages := .Site.RegularPages }}{{ end }}
+{{ range $pages.GroupByDate "2006"  }}
+<b>{{ .Key }}</b>
+<ul style="list-style-type: none;">
+    {{ range .Pages }}
+      <li><span class="date">{{ .Date.Format "Jan 02" }}</span>
+      » <a href="{{ .RelPermalink }}" {{ if .Draft }}class="draft"{{ end }}>{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+  </li>
+{{ end }}
+<br/>

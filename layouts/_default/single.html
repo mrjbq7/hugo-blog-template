@@ -1,0 +1,26 @@
+{{ define "title" }}
+{{ .Title }} &ndash; {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+
+<article data-pagefind-body>
+<h2 data-pagefind-meta="title"><span class="title">{{ .Title }}</span></h2>
+
+<div>
+<div style="float: left;">
+{{ if (gt .Params.date 0) }}<p class="date">{{ .Date.Format "Monday, January 2, 2006" }}</p>{{ end }}
+</div>
+
+<div style="float: right;">
+<p class="tags">{{ partial "tags.html" . }}</p>
+</div>
+</div>
+
+<div style="clear: both;">
+{{ .Content }}
+</div>
+
+</article>
+
+{{ end }}

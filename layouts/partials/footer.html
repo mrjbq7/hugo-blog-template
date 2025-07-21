@@ -1,0 +1,17 @@
+<footer>
+<nav>
+   {{ if .Next }}
+   <a href="{{ .Next.RelPermalink }}">« {{ .Next.Title | truncate 50 "..." }}</a>
+   {{ end }}
+
+   {{ if .Prev }}
+   <a style="float: right;" href="{{ .Prev.RelPermalink }}">{{ .Prev.Title | truncate 50 "..."}} »</a>
+   {{ end }}
+</nav>
+
+{{ with .Site.Params.footer }}
+<div style="clear: both; text-align: center; padding-top: 0.5rem;">
+{{ replace . "{Year}" now.Year | markdownify}}
+</div>
+{{ end }}
+</footer>
